@@ -1,6 +1,6 @@
 <?php
 
-define('DB_HOST', 'your_host');
-define('DB_NAME', 'database_name');
-define('DB_USER', 'user_name');
-define('DB_PASS', 'password');
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'subscribers01');
+define('DB_USER', 'mysql-newsletter');
+define('DB_PASS', ':VMN6U(z%4Q*');
