@@ -20,7 +20,7 @@ if (!empty($_POST)) {
     $name = trim($_POST['name']);
 
     // On récupère l'origine
-    $selectedOrigin = $_POST['origine'];
+    $selectedOrigin = $_POST['origin'];
 
     // Validation 
     if (!$email) {

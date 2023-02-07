@@ -1,7 +1,7 @@
 <?php
 
 
-require 'config_import.php';
+require 'config.php';
 
 
 $filename = $argv[1];
@@ -30,6 +30,7 @@ while ($row = fgetcsv($file)) {
     $name = $row[1];
     $email = $row[2];
     $date = new DateTime();
+    $newDate = $date->format("Y-m-d H:i:s");
 
     $firstname = strtolower($firstname);
     $firstname = ucwords($firstname, " -");
@@ -39,9 +40,7 @@ while ($row = fgetcsv($file)) {
     $email = str_replace(" ", "", $email);
 
 
-    $pdoStatement->execute([$firstname, $name, $email, $date->format("Y-m-d H:i:s")]);
+    $pdoStatement->execute([$firstname, $name, $email, $newDate]);
 }
-
-var_dump($name);
 
 echo 'Import terminé!';
