@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 03, 2023 at 10:17 AM
+-- Generation Time: Feb 07, 2023 at 01:50 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -32,6 +32,16 @@ CREATE TABLE `origines` (
   `origine_label` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `origines`
+--
+
+INSERT INTO `origines` (`id`, `origine_label`) VALUES
+(1, 'Comment avez-vous connu la galerie ?'),
+(2, 'Un ami m’en a parlé\r\n\r\n'),
+(3, 'Recherche sur internet\r\n'),
+(4, 'Publicité dans un magazine\r\n');
+
 -- --------------------------------------------------------
 
 --
@@ -44,8 +54,23 @@ CREATE TABLE `subscribers` (
   `email` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `firstname` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `origine_id` int NOT NULL
+  `origine_id` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `subscribers`
+--
+
+INSERT INTO `subscribers` (`id`, `date`, `email`, `firstname`, `name`, `origine_id`) VALUES
+(1, '2023-02-03 13:16:20', 'alfred.dupont@gmail.com', 'Alfred', 'Alfred', NULL),
+(2, '2023-02-03 13:16:20', 'b.lav@hotmail.fr', 'Bertrand', 'Bertrand', NULL),
+(3, '2023-02-03 13:16:20', 'sarahlamine@gmail.com', 'Sarah', 'Sarah', NULL),
+(4, '2023-02-03 13:16:20', 'mo78@laposte.net', 'Mohamed', 'Mohamed', NULL),
+(5, '2023-02-03 15:52:09', 'saturn-solar@outlook.com', 'olivier', 'garnier', 3),
+(6, '2023-02-07 13:47:58', 'alfred.dupont@gmail.com', 'Alfred', 'Alfred', NULL),
+(7, '2023-02-07 13:47:58', 'b.lav@hotmail.fr', 'Bertrand', 'Bertrand', NULL),
+(8, '2023-02-07 13:47:58', 'sarahlamine@gmail.com', 'Sarah', 'Sarah', NULL),
+(9, '2023-02-07 13:47:58', 'mo78@laposte.net', 'Mohamed', 'Mohamed', NULL);
 
 --
 -- Indexes for dumped tables
@@ -72,13 +97,13 @@ ALTER TABLE `subscribers`
 -- AUTO_INCREMENT for table `origines`
 --
 ALTER TABLE `origines`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `subscribers`
 --
 ALTER TABLE `subscribers`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables
