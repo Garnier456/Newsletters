@@ -20,7 +20,7 @@ if (!empty($_POST)) {
     $name = trim($_POST['name']);
 
     // On récupère l'origine
-    $origineSelectionnee = $_POST['origine'];
+    $selectedOrigin = $_POST['origine'];
 
     // Validation 
     if (!$email) {
@@ -39,7 +39,7 @@ if (!empty($_POST)) {
     if (empty($errors)) {
 
         // Ajout de l'email dans le fichier csv
-        addSubscriber($email, $firstname, $name, $origineSelectionnee);
+        addSubscriber($email, $firstname, $name, $selectedOrigin);
 
         // Message de succès
         $success  = 'Merci de votre inscription';
