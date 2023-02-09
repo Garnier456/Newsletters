@@ -15,7 +15,7 @@ function getAllOrigins()
     ];
 
     // Création de la connexion PDO (création d'un objet PDO)
-    $pdo = new PDO($dsn, DB_USER, DB_PASSWORD, $options);
+    $pdo = new PDO($dsn, DB_USER, DB_PASS, $options);
     $pdo->exec('SET NAMES UTF8');
 
     $sql = 'SELECT *
@@ -44,7 +44,7 @@ function addSubscriber(string $email, string $prenom, string $nom, int $originId
     ];
 
     // Création de la connexion PDO (création d'un objet PDO)
-    $pdo = new PDO($dsn, DB_USER, DB_PASSWORD, $options);
+    $pdo = new PDO($dsn, DB_USER, DB_PASS, $options);
     $pdo->exec('SET NAMES UTF8');
 
     // Insertion de l'email dans la table subscribers

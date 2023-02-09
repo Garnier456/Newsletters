@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 07, 2023 at 01:50 PM
+-- Generation Time: Feb 09, 2023 at 09:05 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -37,7 +37,6 @@ CREATE TABLE `origines` (
 --
 
 INSERT INTO `origines` (`id`, `origine_label`) VALUES
-(1, 'Comment avez-vous connu la galerie ?'),
 (2, 'Un ami m’en a parlé\r\n\r\n'),
 (3, 'Recherche sur internet\r\n'),
 (4, 'Publicité dans un magazine\r\n');
@@ -62,15 +61,12 @@ CREATE TABLE `subscribers` (
 --
 
 INSERT INTO `subscribers` (`id`, `date`, `email`, `firstname`, `name`, `origine_id`) VALUES
-(1, '2023-02-03 13:16:20', 'alfred.dupont@gmail.com', 'Alfred', 'Alfred', NULL),
-(2, '2023-02-03 13:16:20', 'b.lav@hotmail.fr', 'Bertrand', 'Bertrand', NULL),
-(3, '2023-02-03 13:16:20', 'sarahlamine@gmail.com', 'Sarah', 'Sarah', NULL),
-(4, '2023-02-03 13:16:20', 'mo78@laposte.net', 'Mohamed', 'Mohamed', NULL),
-(5, '2023-02-03 15:52:09', 'saturn-solar@outlook.com', 'olivier', 'garnier', 3),
-(6, '2023-02-07 13:47:58', 'alfred.dupont@gmail.com', 'Alfred', 'Alfred', NULL),
-(7, '2023-02-07 13:47:58', 'b.lav@hotmail.fr', 'Bertrand', 'Bertrand', NULL),
-(8, '2023-02-07 13:47:58', 'sarahlamine@gmail.com', 'Sarah', 'Sarah', NULL),
-(9, '2023-02-07 13:47:58', 'mo78@laposte.net', 'Mohamed', 'Mohamed', NULL);
+(24, '2023-02-09 08:55:30', 'alfred.dupont@gmail.com', 'Alfred', 'Alfred', NULL),
+(25, '2023-02-09 08:55:30', 'b.lav@hotmail.fr', 'Bertrand', 'Bertrand', NULL),
+(26, '2023-02-09 08:55:30', 'sarahlamine@gmail.com', 'Sarah', 'Sarah', NULL),
+(27, '2023-02-09 08:55:30', 'mo78@laposte.net', 'Mohamed', 'Mohamed', NULL),
+(28, '2023-02-09 09:57:12', 'saturn-solar@outlook.com', 'olivier', 'garnier', 3),
+(29, '2023-02-09 09:57:15', 'saturn-solar@outlook.com', 'olivier', 'garnier', 4);
 
 --
 -- Indexes for dumped tables
@@ -103,7 +99,7 @@ ALTER TABLE `origines`
 -- AUTO_INCREMENT for table `subscribers`
 --
 ALTER TABLE `subscribers`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- Constraints for dumped tables
