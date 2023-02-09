@@ -21,6 +21,7 @@ if (!empty($_POST)) {
 
     // On récupère l'origine
     $selectedOrigin = $_POST['origin'];
+    $interests = $_POST['interest'];
 
     // Validation 
     if (!$email) {
@@ -39,7 +40,9 @@ if (!empty($_POST)) {
     if (empty($errors)) {
 
         // Ajout de l'email dans le fichier csv
+        $subscribers_id = addSubscriber($email, $firstname, $name, $selectedOrigin);
         addSubscriber($email, $firstname, $name, $selectedOrigin);
+        addUserInterest($subscribers_id, $interests);
 
         // Message de succès
         $success  = 'Merci de votre inscription';
@@ -52,6 +55,7 @@ if (!empty($_POST)) {
 
 // Sélection de la liste des origines
 $origines = getAllOrigins();
+$interestSelected = getAllInterest();
 
 // Inclusion du template
 include 'index.phtml';
