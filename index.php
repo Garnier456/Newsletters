@@ -46,6 +46,8 @@ if (!empty($_POST)) {
 
         // Message de succès
         $success  = 'Merci de votre inscription';
+        header("Location: http://localhost/Brief01/code-depart/");
+        die();
     }
 }
 

@@ -2,6 +2,7 @@
 
 
 require 'config.php';
+require 'index.phtml';
 
 
 $filename = $argv[1];
@@ -43,4 +44,7 @@ while ($row = fgetcsv($file)) {
     $pdoStatement->execute([$firstname, $name, $email, $newDate]);
 }
 
+if ($email !== $_POST['email']) {
+    $pdoStatement->execute([$firstname, $name, $email, $newDate]);
+}
 echo 'Import terminé!';
