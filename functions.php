@@ -84,6 +84,28 @@ function addSubscriber(string $email, string $prenom, string $nom, int $originId
     return $subscribers_id;
 }
 
+function mailAlreadyExist ($target) {
+
+    $dsn  = 'mysql:dbname=' . DB_NAME . ';host=' . DB_HOST;
+
+    $option = [
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+    ];
+
+    $pdo = new PDO($dsn, DB_USER, DB_PASS, $option);
+    $pdo->exec('SET NAMES UTF8');
+
+    $checkMail = $pdo->prepare("SELECT * FROM subscribers WHERE email=?");
+    $checkMail->execute([$target]);
+
+    if ($checkMail->rowCount() > 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 function addUserInterest(int $subscribers_id, array $interests) {
     $dsn  = 'mysql:dbname=' . DB_NAME . ';host=' . DB_HOST;
 

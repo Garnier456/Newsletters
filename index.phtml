@@ -35,6 +35,10 @@
                     <?php if (isset($errors['email'])) : ?>
                         <p class="message error"><?= $errors['email']; ?></p>
                     <?php endif; ?>
+                    <?php if (mailAlreadyExist($email)) : ?>
+                        <p class="message error"><?= "Un compte existe déjà avec cette email"; ?></p>
+                    <?php endif; ?>
+                    
                 </div>
                 <div class="field-list">
                     <label for="firstname">Prénom</label>
