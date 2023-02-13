@@ -25,7 +25,6 @@ $pdoStatement = $pdo->prepare('INSERT INTO subscribers (firstname, name, email, 
 
     while ($row = fgetcsv($file)) {
 
-
         $firstname = $row[0];
         $name = $row[1];
         $email = $row[2];

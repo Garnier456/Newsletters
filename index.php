@@ -37,16 +37,16 @@ if (!empty($_POST)) {
     }
 
     // Si tout est OK (pas d'erreur)
-    if (empty($errors)) {
+    if (empty($errors) && mailAlreadyExist($email) == false) {
 
-        // Ajout de l'email dans le fichier csv
         $subscribers_id = addSubscriber($email, $firstname, $name, $selectedOrigin);
-        addSubscriber($email, $firstname, $name, $selectedOrigin);
+        // Ajout de l'email dans le fichier csv
         addUserInterest($subscribers_id, $interests);
 
         // Message de succès
         $success  = 'Merci de votre inscription';
-        
+
+        header('Location: index.php');
     }
 }
 

@@ -80,7 +80,7 @@ function addSubscriber(string $email, string $prenom, string $nom, int $originId
     $query = $pdo->prepare($sql);
     $query->execute([$email, $prenom, $nom, $originId]);
 
-    $subscribers_id = $pdo -> lastInsertId();
+    $subscribers_id = $pdo->lastInsertId();
     return $subscribers_id;
 }
 
@@ -126,3 +126,4 @@ function addUserInterest(int $subscribers_id, array $interests) {
         $query->execute([$subscribers_id, $interest_id]);
     }
 }
+
