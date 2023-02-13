@@ -23,25 +23,27 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 $pdoStatement = $pdo->prepare('INSERT INTO subscribers (firstname, name, email, date) VALUES (?,?,?,?)');
 
+if ($email->rowCount() == 0) {
 
-while ($row = fgetcsv($file)) {
-
-
-    $firstname = $row[0];
-    $name = $row[1];
-    $email = $row[2];
-    $date = new DateTime();
-    $newDate = $date->format("Y-m-d H:i:s");
-
-    $firstname = strtolower($firstname);
-    $firstname = ucwords($firstname, " -");
-    $name = strtolower($firstname);
-    $name = ucwords($firstname, " -");
-    $email = strtolower($email);
-    $email = str_replace(" ", "", $email);
+    while ($row = fgetcsv($file)) {
 
 
-    $pdoStatement->execute([$firstname, $name, $email, $newDate]);
+        $firstname = $row[0];
+        $name = $row[1];
+        $email = $row[2];
+        $date = new DateTime();
+        $newDate = $date->format("Y-m-d H:i:s");
+
+        $firstname = strtolower($firstname);
+        $firstname = ucwords($firstname, " -");
+        $name = strtolower($firstname);
+        $name = ucwords($firstname, " -");
+        $email = strtolower($email);
+        $email = str_replace(" ", "", $email);
+        
+            $pdoStatement->execute([$firstname, $name, $email, $newDate]);
+    }
 }
+
 
 echo 'Import terminé!';
