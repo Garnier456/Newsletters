@@ -2,7 +2,6 @@
 
 
 require 'config.php';
-require 'index.phtml';
 
 
 $filename = $argv[1];
@@ -23,7 +22,6 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 $pdoStatement = $pdo->prepare('INSERT INTO subscribers (firstname, name, email, date) VALUES (?,?,?,?)');
 
-if ($email->rowCount() == 0) {
 
     while ($row = fgetcsv($file)) {
 
@@ -40,7 +38,11 @@ if ($email->rowCount() == 0) {
         $name = ucwords($firstname, " -");
         $email = strtolower($email);
         $email = str_replace(" ", "", $email);
+
+        $pdoCheckMail = $pdo->prepare('SELECT * FROM subscribers WHERE email=?');
+        $pdoCheckMail->execute([$email]);
         
+        if ($pdoCheckMail->rowCount() == false) {
             $pdoStatement->execute([$firstname, $name, $email, $newDate]);
     }
 }
