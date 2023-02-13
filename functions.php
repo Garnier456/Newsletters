@@ -84,7 +84,7 @@ function addSubscriber(string $email, string $prenom, string $nom, int $originId
     return $subscribers_id;
 }
 
-function mailAlreadyExist ($target) {
+function mailAlreadyExist($target) {
 
     $dsn  = 'mysql:dbname=' . DB_NAME . ';host=' . DB_HOST;
 

@@ -1,4 +1,3 @@
-La nature des cardinalités dans cette base de donnée est la suivante: 
+La cardinalité dans cette base de donnée est la suivante: 
            
-              - un subscriber doit avoir au minimum une origine et seulement une. (1 - 1)
-              - et une origine doit avoir au minimum un subscriber ou plusieurs. (1 - N)
+              - un subscriber peut avoir plusieurs origines (1 - N).
