@@ -10,6 +10,7 @@ $success = null;
 $email = '';
 $firstname = '';
 $name = '';
+$interests = '';
 
 // Si le formulaire a été soumis...
 if (!empty($_POST)) {
@@ -21,11 +22,14 @@ if (!empty($_POST)) {
 
     // On récupère l'origine
     $selectedOrigin = $_POST['origin'];
-    $interests = $_POST['interest'];
+
+    if (isset($_POST['interest'])) {
+        $interests = $_POST['interest'];
+    }
 
     // Validation 
-    if (!$email) {
-        $errors['email'] = "Merci d'indiquer une adresse mail";
+    if (!$email || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errors['email'] = "Merci d'indiquer une adresse mail valide";
     }
 
     if (!$firstname) {
@@ -34,6 +38,10 @@ if (!empty($_POST)) {
 
     if (!$name) {
         $errors['name'] = "Merci d'indiquer un nom";
+    }
+
+    if (!$interests) {
+        $errors['interest'] = "Merci de cocher une case";
     }
 
     // Si tout est OK (pas d'erreur)
@@ -47,6 +55,7 @@ if (!empty($_POST)) {
         $success  = 'Merci de votre inscription';
 
         header('Location: index.php');
+        exit();
     }
 }
 
@@ -56,7 +65,7 @@ if (!empty($_POST)) {
 
 // Sélection de la liste des origines
 $origines = getAllOrigins();
-$interestSelected = getAllInterest();
+$interests = getAllInterest();
 
 // Inclusion du template
 include 'index.phtml';

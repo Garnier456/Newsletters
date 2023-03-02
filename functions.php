@@ -120,8 +120,6 @@ function addUserInterest(int $subscribers_id, array $interests) {
     foreach ($interests as  $interest_id) {
         $query = $pdo->prepare("INSERT INTO subscribers_interests (subscribers_id, interests_id) VALUE (?,?)");
 
-        $query->bindParam('subscribers_id', $subscribers_id);
-        $query->bindParam('interests_id', $interest_id);
 
         $query->execute([$subscribers_id, $interest_id]);
     }
