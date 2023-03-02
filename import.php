@@ -2,7 +2,7 @@
 
 
 require 'config.php';
-
+require 'functions.php';
 
 $filename = $argv[1];
 
@@ -40,11 +40,16 @@ $pdoStatement = $pdo->prepare('INSERT INTO subscribers (firstname, name, email, 
 
         $pdoCheckMail = $pdo->prepare('SELECT * FROM subscribers WHERE email=?');
         $pdoCheckMail->execute([$email]);
+
         
         if ($pdoCheckMail->rowCount() == false) {
             $pdoStatement->execute([$firstname, $name, $email, $newDate]);
+        } else {
+            echo $email . " existe déjà ! \n";
+        }
     }
-}
+
 
 
 echo 'Import terminé!';
+
