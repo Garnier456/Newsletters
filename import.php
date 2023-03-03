@@ -22,6 +22,7 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 $pdoStatement = $pdo->prepare('INSERT INTO subscribers (firstname, name, email, date) VALUES (?,?,?,?)');
 
+$emailCount = 0;
 
     while ($row = fgetcsv($file)) {
 
@@ -44,12 +45,14 @@ $pdoStatement = $pdo->prepare('INSERT INTO subscribers (firstname, name, email, 
         
         if ($pdoCheckMail->rowCount() == false) {
             $pdoStatement->execute([$firstname, $name, $email, $newDate]);
+            $emailCount ++;
         } else {
             echo $email . " existe déjà ! \n";
         }
     }
-
-
+    
+    echo $emailCount . " on était ajouté \n";
+    
 
 echo 'Import terminé!';
 

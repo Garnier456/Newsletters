@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 13, 2023 at 09:37 AM
+-- Generation Time: Mar 03, 2023 at 12:35 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -112,6 +112,7 @@ ALTER TABLE `origines`
 --
 ALTER TABLE `subscribers`
   ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`),
   ADD KEY `fksubscibers` (`origine_id`);
 
 --
@@ -141,7 +142,7 @@ ALTER TABLE `origines`
 -- AUTO_INCREMENT for table `subscribers`
 --
 ALTER TABLE `subscribers`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=167;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=255;
 
 --
 -- Constraints for dumped tables
